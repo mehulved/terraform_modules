@@ -72,7 +72,7 @@ variable "app_port" {
 
 variable "app_resources" {
   description = "Resource limits and requests for the app"
-  type = list(object({
+  type = object({
     limits = optional(object({
       cpu    = optional(string)
       memory = optional(string)
@@ -81,9 +81,9 @@ variable "app_resources" {
       cpu    = optional(string)
       memory = optional(string)
     }))
-  }))
+  })
 
-  default = []
+  default = {}
 }
 
 variable "service_port" {

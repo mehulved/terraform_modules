@@ -74,7 +74,7 @@ resource "kubernetes_pod_v1" "app" {
       image = var.app_container_image
 
       dynamic "resources" {
-        for_each = var.app_resources
+        for_each = var.app_resources[*]
         content {
           limits = resources.value.limits != null ? {
             cpu    = resources.value.limits.cpu != null ? resources.value.limits.cpu : ""
