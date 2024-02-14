@@ -76,14 +76,14 @@ resource "kubernetes_pod_v1" "app" {
       dynamic "resources" {
         for_each = var.app_resources
         content {
-          limits = {
-            cpu    = resources.value.limits.cpu
-            memory = resources.value.limits.memory
-          }
-          requests = {
-            cpu    = resources.value.requests.cpu
-            memory = resources.value.requests.memory
-          }
+          limits = resources.value.limits != null ? {
+            cpu    = resources.value.limits.cpu != null ? resources.value.limits.cpu : ""
+            memory = resources.value.limits.memory != null ? resources.value.limits.memory : ""
+          } : {}
+          requests = resources.value.requests != null ? {
+            cpu    = resources.value.requests.cpu != null ? resources.value.requests.cpu : ""
+            memory = resources.value.requests.memory != null ? resources.value.requests.memory : ""
+          } : {}
         }
       }
 
