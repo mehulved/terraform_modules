@@ -82,6 +82,8 @@ variable "app_resources" {
       memory = optional(string)
     }))
   }))
+
+  default = []
 }
 
 variable "service_port" {
