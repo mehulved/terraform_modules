@@ -3,11 +3,10 @@ variables {
   domain = "one2.local"
   environment = "prod"
   namespace = "test"
-}
-
-provider "kubernetes" {
-  config_path    = "~/.kube/config"
-  config_context = "minikube"
+  cluster_host = compact([ for cluster in lookup(yamldecode(file("~/.kube/config")), "clusters"): (cluster.name == "minikube" ? cluster.cluster.server: null) ])[0]
+  client_certificate = "${file("~/.minikube/profiles/minikube/client.crt")}"
+  client_key = "${file("~/.minikube/profiles/minikube/client.key")}"
+  cluster_ca_certificate = "${file("~/.minikube/ca.crt")}"
 }
 
 run "same_namespace_for_all_resources" {

@@ -38,6 +38,10 @@ No modules.
 | <a name="input_app_name"></a> [app\_name](#input\_app\_name) | Name of the app | `string` | n/a | yes |
 | <a name="input_app_port"></a> [app\_port](#input\_app\_port) | Application Port | `number` | `80` | no |
 | <a name="input_app_resources"></a> [app\_resources](#input\_app\_resources) | Resource limits and requests for the app | <pre>object({<br>    limits = optional(object({<br>      cpu    = optional(string)<br>      memory = optional(string)<br>    }))<br>    requests = optional(object({<br>      cpu    = optional(string)<br>      memory = optional(string)<br>    }))<br>  })</pre> | `{}` | no |
+| <a name="input_client_certificate"></a> [client\_certificate](#input\_client\_certificate) | Cluster Client Certificate | `string` | n/a | yes |
+| <a name="input_client_key"></a> [client\_key](#input\_client\_key) | Cluster Client Key | `string` | n/a | yes |
+| <a name="input_cluster_ca_certificate"></a> [cluster\_ca\_certificate](#input\_cluster\_ca\_certificate) | CA Certificate for the cluster | `string` | n/a | yes |
+| <a name="input_cluster_host"></a> [cluster\_host](#input\_cluster\_host) | Host Cluster | `string` | n/a | yes |
 | <a name="input_domain"></a> [domain](#input\_domain) | Domain for the app | `string` | n/a | yes |
 | <a name="input_environment"></a> [environment](#input\_environment) | Environment Name | `string` | n/a | yes |
 | <a name="input_namespace"></a> [namespace](#input\_namespace) | Namespace in which to deploy the app | `string` | n/a | yes |

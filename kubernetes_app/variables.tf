@@ -1,3 +1,23 @@
+variable "cluster_host" {
+  description = "Host Cluster"
+  type        = string
+}
+
+variable "client_certificate" {
+  description = "Cluster Client Certificate"
+  type        = string
+}
+
+variable "client_key" {
+  description = "Cluster Client Key"
+  type        = string
+}
+
+variable "cluster_ca_certificate" {
+  description = "CA Certificate for the cluster"
+  type        = string
+}
+
 variable "environment" {
   description = "Environment Name"
   type        = string
